@@ -1,9 +1,6 @@
-// import React from 'react'
-
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
-import { Button, Modal } from "antd";
-import EditModal from "./EditModal";
+
 import ListDisplayCard from "./ListDisplayCard";
 
 export interface List {
@@ -19,7 +16,6 @@ const Home = () => {
   const [description, setDescription] = useState("");
   const [isAdded, setIsAdded] = useState(false);
   const [isDeleted, setIsDeleted] = useState(false);
-  const [isEdit, setIsEdit] = useState(false);
 
   useEffect(() => {
     const storedLists = listsFromLS();
