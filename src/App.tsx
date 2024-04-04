@@ -7,7 +7,7 @@ function App() {
   return (
     <div>
       {/* NAVBAR */}
-      <nav className="px-2 min-[500px]:px-8 sm:px-20 md:px-10 lg:px-20 h-24 bg-gray-700 text-white sticky top-0">
+      <nav className="px-2 min-[500px]:px-8 sm:px-20 md:px-10 lg:px-32 h-24 bg-gray-700 text-white sticky top-0">
         <Navbar />
       </nav>
       {/* MAIN SECTION */}

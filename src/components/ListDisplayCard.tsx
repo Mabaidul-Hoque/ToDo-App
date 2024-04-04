@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { List } from "./Home";
 import EditModal from "./EditModal";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPencil, faTrashCan } from "@fortawesome/free-solid-svg-icons";
+import { Tooltip } from "antd";
 interface ListDisplayCardProps {
   list: List;
   handleTittleChange: (value: React.ChangeEvent<HTMLInputElement>) => void;
@@ -46,15 +49,21 @@ const ListDisplayCard: React.FC<ListDisplayCardProps> = ({
 
   return (
     <div>
-      <h1 className="text-2xl font-semibold">{list?.title}</h1>
-      <p>{list?.description}</p>
+      <div className="flex items-start gap-4">
+        <div>
+          <h1 className="text-2xl font-semibold">{list?.title}</h1>
+          <p>{list?.description}</p>
+        </div>
+      </div>
       <div className="flex gap-4 items-center justify-end pt-4">
-        <button
-          onClick={showModal}
-          className="hover:bg-green-400 px-2 py-0.5 rounded"
-        >
-          Edit
-        </button>
+        <Tooltip title="Edit" color="green" placement="bottom">
+          <button
+            onClick={showModal}
+            className="hover:bg-green-400 px-2 py-0.5 rounded"
+          >
+            <FontAwesomeIcon icon={faPencil} />
+          </button>
+        </Tooltip>
         <EditModal
           isOpen={isModalOpen}
           handleOk={handleOk}
@@ -66,12 +75,14 @@ const ListDisplayCard: React.FC<ListDisplayCardProps> = ({
           title={title}
           description={description}
         />
-        <button
-          onClick={() => handleDelete(list.title)}
-          className="hover:bg-red-400 px-2 py-0.5 rounded"
-        >
-          Delete
-        </button>
+        <Tooltip title="Delete" color="green" placement="bottom">
+          <button
+            onClick={() => handleDelete(list.title)}
+            className="hover:bg-red-400 px-2 py-0.5 rounded"
+          >
+            <FontAwesomeIcon icon={faTrashCan} />
+          </button>
+        </Tooltip>
       </div>
     </div>
   );
